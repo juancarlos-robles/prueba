@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Example Test') {
             agent {
-                label 'docker'
-                docker 'openjdk:8-jre'
+                docker {
+                    label 'docker'
+                    image 'openjdk:8-jre'
+                }
             } 
             steps {
                 echo 'Hello, JDK'
