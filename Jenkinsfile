@@ -4,7 +4,7 @@ pipeline {
         stage('Build') { 
             steps { 
                echo 'Compilando el proyecto'
-               javac jenkins/src/jenkins/main.java
+               $JAVA_HOME jenkins/src/jenkins/main.java
             }
         }
         stage('Execute') { 
