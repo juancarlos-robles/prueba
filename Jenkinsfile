@@ -3,7 +3,14 @@ pipeline {
     stages { 
         stage('Build') { 
             steps { 
-               echo 'This is a minimal pipeline.' 
+               echo 'Compilando el proyecto'
+               javac jenkins/src/jenkins/main.java
+            }
+        }
+        stage('Execute') { 
+            steps { 
+               echo 'Ejecutando el proyecto'
+               java jenkins/src/jenkins/main
             }
         }
     }
