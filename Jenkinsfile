@@ -1,12 +1,14 @@
 pipeline {
     agent any
-    stages {
-        stage('Example Test') {
-            steps {
-                echo 'Hello, JDK'
-                sh 'java -version'
-                sh 'javac '
+
+    stages {  
+        stage ("build") {
+            tools {
+               jdk "JDK 11"
             }
-        }
-    }
+            steps {
+                sh 'java -version'
+            }
+        }          
+   }
 }
