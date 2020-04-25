@@ -1,16 +1,11 @@
 pipeline { 
     agent any  
     stages { 
-        stage('Build') { 
-            steps { 
-               echo 'Compilando el proyecto'
-               $JAVA_HOME jenkins/src/jenkins/main.java
-            }
-        }
-        stage('Execute') { 
-            steps { 
-               echo 'Ejecutando el proyecto'
-               java jenkins/src/jenkins/main
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } 
+            steps {
+                echo 'Hello, JDK'
+                sh 'java -version'
             }
         }
     }
