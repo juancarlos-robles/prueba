@@ -4,13 +4,13 @@ pipeline {
         stage('Build') { 
             steps { 
                echo 'Compilando el proyecto'
-               javac jenkins/src/jenkins/main.java
+               sh 'javac jenkins/src/jenkins/main.java'
             }
         }
         stage('Execute') { 
             steps { 
                echo 'Ejecutando el proyecto'
-               java jenkins/src/jenkins/main
+               sh 'java jenkins/src/jenkins/main'
             }
         }
     }
