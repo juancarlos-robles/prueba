@@ -10,7 +10,6 @@ pipeline {
                 sh 'java -version'
                 sh 'javac jenkins/src/jenkins/main.java'
                 sh 'java -cp jenkins/src/ jenkins.main'
-                javadoc 'jenkins/src/jenkins/main.java'
             }
         }          
    }
