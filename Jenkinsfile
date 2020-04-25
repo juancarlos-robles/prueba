@@ -7,6 +7,7 @@ pipeline {
                jdk "JDK 11"
             }
             steps {
+                sh 'javadoc'
                 sh 'java -version'
             }
         }          
