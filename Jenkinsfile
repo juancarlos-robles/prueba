@@ -5,6 +5,7 @@ pipeline {
             steps {
                 echo 'Hello, JDK'
                 sh 'java -version'
+                sh 'javac '
             }
         }
     }
