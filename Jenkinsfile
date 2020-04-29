@@ -12,16 +12,10 @@ pipeline {
                 sh 'java -cp jenkins/src/ jenkins.main'
             }
         }
-        stage ("Test") {
-            steps{
-                sh './gradlwe check'
-            }
-        }
    }
     post {
         always {
-            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-            junit 'build/reports/**/*.xml'
+            junit 'jenkins/src/jenkins/SaludoTest.java'
         }
     }
 }
