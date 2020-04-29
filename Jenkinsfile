@@ -1,17 +1,16 @@
-pipeline { 
-    agent any  
-    stages { 
-        stage('Build') { 
-            steps { 
-               echo 'Compilando el proyecto'
-               javac jenkins/src/jenkins/main.java
+pipeline {
+    agent any
+
+    stages {  
+        stage ("build") {
+            tools {
+               jdk "JDK 11"
             }
-        }
-        stage('Execute') { 
-            steps { 
-               echo 'Ejecutando el proyecto'
-               java jenkins/src/jenkins/main
+            steps {
+                sh 'java -version'
+                sh 'javac jenkins/src/jenkins/main.java'
+                sh 'java -cp jenkins/src/ jenkins.main'
             }
-        }
-    }
+        }          
+   }
 }
