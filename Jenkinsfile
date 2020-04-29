@@ -15,7 +15,7 @@ pipeline {
    }
     post {
         always {
-            junit 'jenkins/src/jenkins/SaludoTest.java'
+            junit '**/test-reports/*.xml'
         }
     }
 }
