@@ -8,7 +8,7 @@ pipeline {
             }
             steps {
                 sh 'java -version'
-                sh 'javac jenkins/src/jenkins/Saludo.java jenkins/src/jenkins/main.java'
+                sh 'javac jenkins/src'
                 sh 'java -cp jenkins/src/ jenkins.main'
             }
         }          
