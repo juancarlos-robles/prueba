@@ -8,9 +8,20 @@ pipeline {
             }
             steps {
                 sh 'java -version'
-                sh 'javac jenkins/src'
+                sh 'javac jenkins/src/jenkins/Saludo.java jenkins/src/jenkins/main.java'
                 sh 'java -cp jenkins/src/ jenkins.main'
             }
-        }          
+        }
+        stage ("Test") {
+            steps{
+                sh './gradlwe check'
+            }
+        }
    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit 'build/reports/**/*.xml'
+        }
+    }
 }
